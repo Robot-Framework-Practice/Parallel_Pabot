@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.10.11 on win32)" generated="20230619 15:34:42.442" rpa="false">
+<suite id="s1" name="Test" source="C:\Users\HIEU VY\Desktop\KBTGVN\Parallel\Test">
+<suite id="s1-s1" name="Test4" source="C:\Users\HIEU VY\Desktop\KBTGVN\Parallel\Test\test4.robot">
+<test id="s1-s1-t1" name="Register Courses">
+<kw name="Acquire Lock" library="pabot.PabotLib">
+<doc>Wait for a lock with name.
+[https://pabot.org/PabotLib.html?ref=log#acquire-lock|Open online docs.]</doc>
+<arguments>
+<arg>MyLock</arg>
+</arguments>
+<status status="PASS" starttime="20230619 15:34:43.154" endtime="20230619 15:34:43.157"></status>
+</kw>
+<kw name="Release Lock" library="pabot.PabotLib">
+<doc>Release a lock with name.
+[https://pabot.org/PabotLib.html?ref=log#release-lock|Open online docs.]</doc>
+<arguments>
+<arg>MyLock</arg>
+</arguments>
+<status status="PASS" starttime="20230619 15:34:43.157" endtime="20230619 15:34:43.159"></status>
+</kw>
+<kw name="Acquire Value Set" library="pabot.PabotLib">
+<doc>Reserve a set of values for this execution.
+[https://pabot.org/PabotLib.html?ref=log#acquire-value-set|Open online docs.]</doc>
+<assign>
+<var>${valuesetname}</var>
+</assign>
+<msg timestamp="20230619 15:34:43.161" level="INFO">Value set "Student 9" acquired</msg>
+<msg timestamp="20230619 15:34:43.161" level="INFO">${valuesetname} = Student 9</msg>
+<status status="PASS" starttime="20230619 15:34:43.159" endtime="20230619 15:34:43.161"></status>
+</kw>
+<kw name="Get Value From Set" library="pabot.PabotLib">
+<doc>Get a value from previously reserved value set.
+[https://pabot.org/PabotLib.html?ref=log#get-value-from-set|Open online docs.]</doc>
+<arguments>
+<arg>USERNAME</arg>
+</arguments>
+<assign>
+<var>${username}</var>
+</assign>
+<msg timestamp="20230619 15:34:43.162" level="INFO">${username} = studentbk09</msg>
+<status status="PASS" starttime="20230619 15:34:43.161" endtime="20230619 15:34:43.162"></status>
+</kw>
+<kw name="Get Value From Set" library="pabot.PabotLib">
+<doc>Get a value from previously reserved value set.
+[https://pabot.org/PabotLib.html?ref=log#get-value-from-set|Open online docs.]</doc>
+<arguments>
+<arg>PASSWORD</arg>
+</arguments>
+<assign>
+<var>${password}</var>
+</assign>
+<msg timestamp="20230619 15:34:43.162" level="INFO">${password} = 123456</msg>
+<status status="PASS" starttime="20230619 15:34:43.162" endtime="20230619 15:34:43.163"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${username}: ${password}</arg>
+</arguments>
+<msg timestamp="20230619 15:34:43.163" level="INFO">studentbk09: 123456</msg>
+<status status="PASS" starttime="20230619 15:34:43.163" endtime="20230619 15:34:43.163"></status>
+</kw>
+<kw name="Login function">
+<arguments>
+<arg>${username}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Create Env">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>myssion</arg>
+<arg>${base_url}</arg>
+<arg>verify=false</arg>
+<arg>disable_warnings=1</arg>
+</arguments>
+<msg timestamp="20230619 15:34:43.165" level="INFO">Creating Session using : alias=myssion, url=https://kuniv.tech/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230619 15:34:43.164" endtime="20230619 15:34:43.165"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/x-www-form-urlencoded</arg>
+<arg>x-client-id=android-test-app</arg>
+<arg>x-app-platform=ANDROID</arg>
+<arg>x-app-version=1.0.0.0</arg>
+<arg>x-device-id=Test-Device-01</arg>
+</arguments>
+<assign>
+<var>&amp;{headers}</var>
+</assign>
+<msg timestamp="20230619 15:34:43.166" level="INFO">&amp;{headers} = { Content-Type=application/x-www-form-urlencoded | x-client-id=android-test-app | x-app-platform=ANDROID | x-app-version=1.0.0.0 | x-device-id=Test-Device-01 }</msg>
+<status status="PASS" starttime="20230619 15:34:43.165" endtime="20230619 15:34:43.166"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20230619 15:34:43.167" level="INFO">${headers} = {'Content-Type': 'application/x-www-form-urlencoded', 'x-client-id': 'android-test-app', 'x-app-platform': 'ANDROID', 'x-app-version': '1.0.0.0', 'x-device-id': 'Test-Device-01'}</msg>
+<msg timestamp="20230619 15:34:43.167" level="INFO">${headers} = None</msg>
+<status status="PASS" starttime="20230619 15:34:43.166" endtime="20230619 15:34:43.167"></status>
+</kw>
+<status status="PASS" starttime="20230619 15:34:43.164" endtime="20230619 15:34:43.167"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>username=${username}</arg>
+<arg>password=${password}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20230619 15:34:43.168" level="INFO">${data} = {'username': 'studentbk09', 'password': '123456'}</msg>
+<status status="PASS" starttime="20230619 15:34:43.167" endtime="20230619 15:34:43.168"></status>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>myssion</arg>
+<arg>/authentication/user-login</arg>
+<arg>data=${data}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=200</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20230619 15:34:44.755" level="INFO">POST Request : url=https://kuniv.tech/api/authentication/user-login 
+ path_url=/api/authentication/user-login 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'x-client-id': 'android-test-app', 'x-app-platform': 'ANDROID', 'x-app-version': '1.0.0.0', 'x-device-id': 'Test-Device-01', 'Content-Length': '36'} 
+ body=username=studentbk09&amp;password=123456 
+ </msg>
+<msg timestamp="20230619 15:34:44.755" level="INFO">POST Response : url=https://kuniv.tech/api/authentication/user-login 
+ status=200, reason= 
+ headers={'Server': 'nginx/1.18.0 (Ubuntu)', 'Date': 'Mon, 19 Jun 2023 08:34:44 GMT', 'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'x-trace-id': '8e64d50f-9c75-43c6-9ac6-d12a1f882b0e', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'X-Frame-Options': 'DENY'} 
+ body={"statusCode":"","status":0,"result":{"loginId":"649013247626bb25b98bc8de","userId":"648bd0f485060b0c83ea7933","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsb2dpbklwQWRkciI6IjEyNy4wLjAuMSIsImFwcFZlcnNpb24iOiJ7XCJtYWpvclwiOjEsXCJtaW5vclwiOjAsXCJtYWludGVuYW5jZVwiOjAsXCJidWlsZFwiOlwiMFwifSIsImxvZ2luSWQiOiI2NDkwMTMyNDc2MjZiYjI1Yjk4YmM4ZGUiLCJleHBpcmVkSW4iOjE2ODcxNjcyODQ2NDQsImFwcFBsYXRmb3JtIjoiQU5EUk9JRCIsImlzcyI6ImF1dGgwIiwidXNlckRpc3BsYXlOYW1lIjoiTmd1eeG7hW4gxJDEg25nIE1pbmgiLCJjbGllbnRBcHBJZCI6ImFuZHJvaWQtdGVzdC1hcHAiLCJ2ZXJpZnlLZXkiOiI2NDhiZDBmNDg1MDYwYjBjODNlYTc5MzN8fEFQUHx8YW5kcm9pZC10ZXN0LWFwcCIsInVzZXJJZCI6IjY0OGJkMGY0ODUwNjBiMGM4M2VhNzkzMyIsImRldmljZUlkIjoiVGVzdC1EZXZpY2UtMDEiLCJ2YWxpZCI6dHJ1ZSwidXNlclJvbGVzIjpbIntcInJlc291cmNlVHlwZVwiOlwic2Nob29sXCIsXCJyZXNvdXJjZUlkXCI6XCI2NDdhZGUzOTczZTM0NDAwM2Q4N2QzYzVcIixcInJvbGVJZFwiOlwiU3R1ZGVudFwifSJdLCJ1c2VyRW1haWwiOiJzdHVkZW50YmswOUBnbWFpbC5jb20iLCJleHAiOjE2ODcxNjcyODQsImlhdCI6MTY4NzE2MzY4NCwidXNlcm5hbWUiOiJzdHVkZW50YmswOSJ9.JI42272Ev35LsuKEQzmpMibqhIUVNsj2HlOUY8z2w-p3n04f4a7QuYmUDVkUIpOhAfmCJc7QtC6sTl-iTqri3unWibam4l2_4J5zUH4tnhFhzRDTIJpnwQm5Wa7tzDQ8RBOitbs4-i3h-_lj9SwInIViPn7AKhEuj5Z9xtWSsBk","refreshToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsb2dpbklwQWRkciI6IjEyNy4wLjAuMSIsImFwcFZlcnNpb24iOiJ7XCJtYWpvclwiOjEsXCJtaW5vclwiOjAsXCJtYWludGVuYW5jZVwiOjAsXCJidWlsZFwiOlwiMFwifSIsImxvZ2luSWQiOiI2NDkwMTMyNDc2MjZiYjI1Yjk4YmM4ZGUiLCJhcHBQbGF0Zm9ybSI6IkFORFJPSUQiLCJpc3MiOiJhdXRoMCIsImxvZ2luVG9rZW4iOiJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpTVXpJMU5pSjkuZXlKc2IyZHBia2x3UVdSa2NpSTZJakV5Tnk0d0xqQXVNU0lzSW1Gd2NGWmxjbk5wYjI0aU9pSjdYQ0p0WVdwdmNsd2lPakVzWENKdGFXNXZjbHdpT2pBc1hDSnRZV2x1ZEdWdVlXNWpaVndpT2pBc1hDSmlkV2xzWkZ3aU9sd2lNRndpZlNJc0lteHZaMmx1U1dRaU9pSTJORGt3TVRNeU5EYzJNalppWWpJMVlqazRZbU00WkdVaUxDSmxlSEJwY21Wa1NXNGlPakUyT0RjeE5qY3lPRFEyTkRRc0ltRndjRkJzWVhSbWIzSnRJam9pUVU1RVVrOUpSQ0lzSW1semN5STZJbUYxZEdnd0lpd2lkWE5sY2tScGMzQnNZWGxPWVcxbElqb2lUbWQxZWVHN2hXNGd4SkRFZzI1bklFMXBibWdpTENKamJHbGxiblJCY0hCSlpDSTZJbUZ1WkhKdmFXUXRkR1Z6ZEMxaGNIQWlMQ0oyWlhKcFpubExaWGtpT2lJMk5EaGlaREJtTkRnMU1EWXdZakJqT0RObFlUYzVNek44ZkVGUVVIeDhZVzVrY205cFpDMTBaWE4wTFdGd2NDSXNJblZ6WlhKSlpDSTZJalkwT0dKa01HWTBPRFV3TmpCaU1HTTRNMlZoTnprek15SXNJbVJsZG1salpVbGtJam9pVkdWemRDMUVaWFpwWTJVdE1ERWlMQ0oyWVd4cFpDSTZkSEoxWlN3aWRYTmxjbEp2YkdWeklqcGJJbnRjSW5KbGMyOTFjbU5sVkhsd1pWd2lPbHdpYzJOb2IyOXNYQ0lzWENKeVpYTnZkWEpqWlVsa1hDSTZYQ0kyTkRkaFpHVXpPVGN6WlRNME5EQXdNMlE0TjJRell6VmNJaXhjSW5KdmJHVkpaRndpT2x3aVUzUjFaR1Z1ZEZ3aWZTSmRMQ0oxYzJWeVJXMWhhV3dpT2lKemRIVmtaVzUwWW1zd09VQm5iV0ZwYkM1amIyMGlMQ0psZUhBaU9qRTJPRGN4TmpjeU9EUXNJbWxoZENJNk1UWTROekUyTXpZNE5Dd2lkWE5sY201aGJXVWlPaUp6ZEhWa1pXNTBZbXN3T1NKOS5KSTQyMjcyRXYzNUxzdUtFUXptcE1pYnFoSVVWTnNqMkhsT1VZOHoydy1wM24wNGY0YTdRdVltVURWa1VJcE9oQWZtQ0pjN1F0QzZzVGwtaVRxcmkzdW5XaWJhbTRsMl80SjV6VUg0dG5oRmh6UkRUSUpwbndRbTVXYTd0ekRROFJCT2l0YnM0LWkzaC1fbGo5U3dJbklWaVBuN0FLaEV1ajVaOXh0V1NzQmsiLCJleHAiOjE2ODcxNjcyODQsInVzZXJJZCI6IjY0OGJkMGY0ODUwNjBiMGM4M2VhNzkzMyIsImRldmljZUlkIjoiVGVzdC1EZXZpY2UtMDEiLCJpYXQiOjE2ODcxNjM2ODR9.nGcUtnbFILB4LM7iiROATb0kEsbxS-uFX6ZM_L1pFbeURX71GCSkl5Y8rdeugL5kXiJ2HY2QwW4kMuIwme97DsYDiy7T-2Ekn8Tn01tuu6ZtwX9u8LL5rNvJGKDFrNmHHe_l6ayU2s5kFv7dS_jyt7IU-_xHiQLYbdtSBToHS3M","username":"studentbk09","userEmail":"studentbk09@gmail.com","userRoles":[{"resourceType":"school","resourceId":"647ade3973e344003d87d3c5","roleId":"Student"}],"fistName":"Minh","lastName":"Nguyễn","displayName":"Nguyễn Đăng Minh","address":"HCM City","gender":"MALE","birthday":"2001-03-27","phoneNumber":"0332246820"}} 
+ </msg>
+<msg timestamp="20230619 15:34:44.756" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230619 15:34:43.168" endtime="20230619 15:34:44.756"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+</arguments>
+<assign>
+<var>${json}</var>
+</assign>
+<msg timestamp="20230619 15:34:44.757" level="INFO">${json} = {'statusCode': '', 'status': 0, 'result': {'loginId': '649013247626bb25b98bc8de', 'userId': '648bd0f485060b0c83ea7933', 'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsb2dpbklwQWRkciI6IjEyNy4wLjAuM...</msg>
+<status status="PASS" starttime="20230619 15:34:44.756" endtime="20230619 15:34:44.757"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${json}</arg>
+</arguments>
+<msg timestamp="20230619 15:34:44.757" level="INFO">${json} = {'statusCode': '', 'status': 0, 'result': {'loginId': '649013247626bb25b98bc8de', 'userId': '648bd0f485060b0c83ea7933', 'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsb2dpbklwQWRkciI6IjEyNy4wLjAuM...</msg>
+<status status="PASS" starttime="20230619 15:34:44.757" endtime="20230619 15:34:44.757"></status>
+</kw>
+<kw name="Get Variable Value" library="BuiltIn">
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<arguments>
+<arg>${json['result']['userRoles'][0]['resourceId']}</arg>
+</arguments>
+<assign>
+<var>${resourceId}</var>
+</assign>
+<msg timestamp="20230619 15:34:44.759" level="INFO">${resourceId} = 647ade3973e344003d87d3c5</msg>
+<status status="PASS" starttime="20230619 15:34:44.757" endtime="20230619 15:34:44.759"></status>
+</kw>
+<kw name="Get Variable Value" library="BuiltIn">
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<arguments>
+<arg>${json['result']['token']}</arg>
+</arguments>
+<assign>
+<var>${token}</var>
+</assign>
+<msg timestamp="20230619 15:34:44.759" level="INFO">${token} = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsb2dpbklwQWRkciI6IjEyNy4wLjAuMSIsImFwcFZlcnNpb24iOiJ7XCJtYWpvclwiOjEsXCJtaW5vclwiOjAsXCJtYWludGVuYW5jZVwiOjAsXCJidWlsZFwiOlwiMFwifSIsImxvZ2luSWQiOiI2NDkwMTMyNDc...</msg>
+<status status="PASS" starttime="20230619 15:34:44.759" endtime="20230619 15:34:44.759"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${token}</arg>
+</arguments>
+<msg timestamp="20230619 15:34:44.759" level="INFO">${token} = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsb2dpbklwQWRkciI6IjEyNy4wLjAuMSIsImFwcFZlcnNpb24iOiJ7XCJtYWpvclwiOjEsXCJtaW5vclwiOjAsXCJtYWludGVuYW5jZVwiOjAsXCJidWlsZFwiOlwiMFwifSIsImxvZ2luSWQiOiI2NDkwMTMyNDc...</msg>
+<status status="PASS" starttime="20230619 15:34:44.759" endtime="20230619 15:34:44.759"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<status status="PASS" starttime="20230619 15:34:44.759" endtime="20230619 15:34:44.761"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<status status="PASS" starttime="20230619 15:34:44.761" endtime="20230619 15:34:44.761"></status>
+</kw>
+<status status="PASS" starttime="20230619 15:34:43.163" endtime="20230619 15:34:44.761"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+<arg>x-client-id=android-test-app</arg>
+<arg>x-app-platform=ANDROID</arg>
+<arg>x-app-version=1.0.0.0</arg>
+<arg>x-device-id=Test-Device-01</arg>
+<arg>Authorization=Bearer ${token}</arg>
+</arguments>
+<assign>
+<var>&amp;{headers}</var>
+</assign>
+<msg timestamp="20230619 15:34:44.761" level="INFO">&amp;{headers} = { Content-Type=application/json | x-client-id=android-test-app | x-app-platform=ANDROID | x-app-version=1.0.0.0 | x-device-id=Test-Device-01 | Authorization=Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9...</msg>
+<status status="PASS" starttime="20230619 15:34:44.761" endtime="20230619 15:34:44.761"></status>
+</kw>
+<kw name="Convert String To Json" library="JSONLibrary">
+<doc>Convert String to JSON object</doc>
+<arguments>
+<arg>{"courseIdList": ["648c700f85060b0c83ea8745"]}</arg>
+</arguments>
+<assign>
+<var>${jsonTransfer}</var>
+</assign>
+<msg timestamp="20230619 15:34:44.762" level="INFO">${jsonTransfer} = {'courseIdList': ['648c700f85060b0c83ea8745']}</msg>
+<status status="PASS" starttime="20230619 15:34:44.761" endtime="20230619 15:34:44.762"></status>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>myssion</arg>
+<arg>/registration/register-course</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${jsonTransfer}</arg>
+<arg>expected_status=200</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20230619 15:34:44.995" level="INFO">POST Request : url=https://kuniv.tech/api/registration/register-course 
+ path_url=/api/registration/register-course 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-client-id': 'android-test-app', 'x-app-platform': 'ANDROID', 'x-app-version': '1.0.0.0', 'x-device-id': 'Test-Device-01', 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsb2dpbklwQWRkciI6IjEyNy4wLjAuMSIsImFwcFZlcnNpb24iOiJ7XCJtYWpvclwiOjEsXCJtaW5vclwiOjAsXCJtYWludGVuYW5jZVwiOjAsXCJidWlsZFwiOlwiMFwifSIsImxvZ2luSWQiOiI2NDkwMTMyNDc2MjZiYjI1Yjk4YmM4ZGUiLCJleHBpcmVkSW4iOjE2ODcxNjcyODQ2NDQsImFwcFBsYXRmb3JtIjoiQU5EUk9JRCIsImlzcyI6ImF1dGgwIiwidXNlckRpc3BsYXlOYW1lIjoiTmd1eeG7hW4gxJDEg25nIE1pbmgiLCJjbGllbnRBcHBJZCI6ImFuZHJvaWQtdGVzdC1hcHAiLCJ2ZXJpZnlLZXkiOiI2NDhiZDBmNDg1MDYwYjBjODNlYTc5MzN8fEFQUHx8YW5kcm9pZC10ZXN0LWFwcCIsInVzZXJJZCI6IjY0OGJkMGY0ODUwNjBiMGM4M2VhNzkzMyIsImRldmljZUlkIjoiVGVzdC1EZXZpY2UtMDEiLCJ2YWxpZCI6dHJ1ZSwidXNlclJvbGVzIjpbIntcInJlc291cmNlVHlwZVwiOlwic2Nob29sXCIsXCJyZXNvdXJjZUlkXCI6XCI2NDdhZGUzOTczZTM0NDAwM2Q4N2QzYzVcIixcInJvbGVJZFwiOlwiU3R1ZGVudFwifSJdLCJ1c2VyRW1haWwiOiJzdHVkZW50YmswOUBnbWFpbC5jb20iLCJleHAiOjE2ODcxNjcyODQsImlhdCI6MTY4NzE2MzY4NCwidXNlcm5hbWUiOiJzdHVkZW50YmswOSJ9.JI42272Ev35LsuKEQzmpMibqhIUVNsj2HlOUY8z2w-p3n04f4a7QuYmUDVkUIpOhAfmCJc7QtC6sTl-iTqri3unWibam4l2_4J5zUH4tnhFhzRDTIJpnwQm5Wa7tzDQ8RBOitbs4-i3h-_lj9SwInIViPn7AKhEuj5Z9xtWSsBk', 'Content-Length': '46'} 
+ body=b'{"courseIdList": ["648c700f85060b0c83ea8745"]}' 
+ </msg>
+<msg timestamp="20230619 15:34:44.995" level="INFO">POST Response : url=https://kuniv.tech/api/registration/register-course 
+ status=200, reason= 
+ headers={'Server': 'nginx/1.18.0 (Ubuntu)', 'Date': 'Mon, 19 Jun 2023 08:34:44 GMT', 'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'x-trace-id': '94fd390b-97a6-489d-9500-52c0e27226e8', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'X-Frame-Options': 'DENY'} 
+ body={"statusCode":"OK","status":0,"result":[{"courseId":"648c700f85060b0c83ea8745","status":"error","errorCode":"course_not_found"}]} 
+ </msg>
+<msg timestamp="20230619 15:34:44.996" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230619 15:34:44.762" endtime="20230619 15:34:44.996"></status>
+</kw>
+<status status="PASS" starttime="20230619 15:34:43.153" endtime="20230619 15:34:44.996" critical="yes"></status>
+</test>
+<doc>Example test suite for parallel API testing</doc>
+<status status="PASS" starttime="20230619 15:34:42.493" endtime="20230619 15:34:44.997"></status>
+</suite>
+<status status="PASS" starttime="20230619 15:34:42.462" endtime="20230619 15:34:44.999"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Test">Test</stat>
+<stat pass="1" fail="0" id="s1-s1" name="Test4">Test.Test4</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

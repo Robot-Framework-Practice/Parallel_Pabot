@@ -1,0 +1,18 @@
+==============================================================================
+Test                                                                          
+==============================================================================
+Test.Test9 :: Example test suite for parallel API testing                     
+==============================================================================
+Register Courses                                                      studentbk07
+studentbk07
+| PASS |
+------------------------------------------------------------------------------
+Test.Test9 :: Example test suite for parallel API testing             | PASS |
+1 critical test, 1 passed, 0 failed
+1 test total, 1 passed, 0 failed
+==============================================================================
+Test                                                                  | PASS |
+1 critical test, 1 passed, 0 failed
+1 test total, 1 passed, 0 failed
+==============================================================================
+Output:  C:\Users\HIEU VY\Desktop\KBTGVN\Parallel\Test\pabot_results\9\output.xml
